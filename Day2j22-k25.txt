@@ -116,6 +116,154 @@ ip dhcp pool _____.com
   swi Voice vlan 25
   do sh ip dhcp binding
 
+Template_CoreSW: For RST HAYUP LAB
+@delta1:
+config t
+vlan 25
+ name TASKUS.com
+ exit
+Int vlan 25
+ no shut
+ ip add 10.0.32.1 255.255.224.0
+exit
+ip dhcp excluded-add 10.0.32.1 10.0.32.100
+ip dhcp pool TASKUS.com
+ network 10.0.32.0 255.255.224.0
+ default-router 10.0.32.1
+ domain-name TASKUS.com
+ dns-server 10.31.1.10
+ option 150 ip 10.31.100.8
+ Int E 01/0
+  swi Mode Access
+  swi access vlan 25
+  do sh ip dhcp binding
+
+@S1:
+config t
+int e1/0
+no shut
+ip address dhcp
+do bp
+
+@D1:
+config t
+vlan 26
+ name ETEKECAREnaga.com
+ exit
+Int vlan 26
+ no shut
+ ip add 10.0.4.1 255.255.252.0
+ip dhcp excluded-add 10.0.4.1 10.0.4.100
+ip dhcp pool ETEKECAREnaga.com
+ network 10.0.4.1 255.255.252.0
+ default-router 10.0.4.1
+ domain-name ETEKECAREnaga.com
+ dns-server 10.31.1.10
+ option 150 ip 10.31.100.8
+@D2 coreSW
+config t
+Int E 01/0
+  swi Mode Access
+  swi access vlan 26
+  do sh ip dhcp binding
+
+@S2:
+config t
+int e1/0
+no shut
+ip address dhcp
+do bp
+
+@D1: SITEL DHCP SUBNETTING CONFIGS:
+config t
+vlan 27
+ name SITEL.com
+ exit
+Int vlan 27
+ no shut
+ ip add 10.0.2.1 255.255.254.0
+ip dhcp excluded-add 10.0.2.1 10.0.2.100
+ip dhcp pool SITEL.com
+ network 10.0.2.1 255.255.254.0
+ default-router 10.0.2.1
+ domain-name SITEL.com
+ dns-server 10.31.1.10
+ option 150 ip 10.31.100.8
+
+@A1 Access SW
+config t
+Int E 0/0
+  swi Mode Access
+  swi access vlan 27
+  do sh ip dhcp binding
+
+@P1:
+config t
+int e0/0
+no shut
+ip address dhcp
+do bp
+
+@D1: FOUNDEVER DHCP SUBNETTING CONFIGS:
+config t
+vlan 28
+ name FOUNDEVER.com
+ exit
+Int vlan 28
+ no shut
+ ip add 10.0.8.1 255.255.248.0
+ip dhcp excluded-add 10.0.8.1 10.0.8.100
+ip dhcp pool FOUNDEVER.com
+ network 10.0.8.1 255.255.248.0
+ default-router 10.0.8.1
+ domain-name FOUNDEVER.com
+ dns-server 10.31.1.10
+ option 150 ip 10.31.100.8
+
+@A2 Access SW
+config t
+Int E 1/0
+  swi Mode Access
+  swi access vlan 28
+  do sh ip dhcp binding
+
+@P2:
+config t
+int e1/0
+no shut
+ip address dhcp
+do bp
+
+@D1: SITEL DHCP SUBNETTING CONFIGS:
+config t
+vlan 29
+ name SITEL.com
+ exit
+Int vlan 29
+ no shut
+ ip add 10.0.64.1 255.255.192.0
+ip dhcp excluded-add 10.0.64.1 10.0.64.100
+ip dhcp pool SITEL.com
+ network 10.0.64.1 255.255.192.0
+ default-router 10.0.64.1
+ domain-name SITEL.com
+ dns-server 10.31.1.10
+ option 150 ip 10.31.100.8
+
+@A1 Access SW
+config t
+Int E 0/0
+  swi Mode Access
+  swi access vlan 29
+  do sh ip dhcp binding
+
+@P1:
+config t
+int e0/0
+no shut
+ip address dhcp
+do bp
+
 Ex.5.3: Compute and Configure SYKESASIA.com
 call center with 388 Agents,Tls,QAs,Pm. using
 10.0.0.0/8:
