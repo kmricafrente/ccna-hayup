@@ -20,8 +20,7 @@ PYTHON, LINUXBASH, RESTAPI, NETCONF.
 config t
 iox
 interface GigabitEthernet1
-no ip address dhcp
-ip nat outside
+ip address dhcp
 no shut
 exit
 !
@@ -124,11 +123,11 @@ ex.5: Create 4 loopbacks:
 import cli
 
 pythonko_1 = '''hostname DEVOPSnaAKO
-int loop 9
+no int loop 9
 ip add 9.9.9.9 255.255.255.255
-int loop 8
+no int loop 8
 ip add 8.8.8.8 255.255.255.255
-int loop 7
+no int loop 7
 ip add 7.7.7.7 255.255.255.255
 end
 '''
