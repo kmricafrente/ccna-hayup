@@ -51,7 +51,7 @@ step1: give Unlimited internet to EDGE:
 @edge
 CONFIG T
 no logging console
-Int Gi 2
+Int Gi 3
 no shut
 ip add 192.168.102.11 255.255.255.0
 !@telnet use secureCRT: telnet 192.168.108.5
