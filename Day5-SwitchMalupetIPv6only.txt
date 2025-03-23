@@ -230,9 +230,9 @@ sh spanning-tree vlan 1
 
 TASK3: EXPENSIVE SWITCH/MANAGEABLE SWITCH:\ = 20k
 1. mac address learning": sh mac address-table
-2  mac address filtering
-3  mac address forwaring
-4  Php: loop avoidance
+2  mac address filtering:  
+3  mac address forwarding:
+4  Php: loop avoidance:
 5. $$: Vlan Feature $$ = 60k up
 
 COREbaba12#sh mac address-table
@@ -244,11 +244,10 @@ Switch:  flash_init
 	 delete flash:config.text
          delete flash:vlan.dat
          boot
-
 TASK5: HOW TO SPOT A VERY HEALTHY SWITCH?
 super healthy: "all flashing green."
 amber/orange: needs help. - you are protected
-
+## HOW TO LEGALLY STEAL EXPENSIVE CISCO AT OFFICE
 create vlans,
 transfer ports to vlans
 delete the vlan
@@ -268,7 +267,7 @@ SIRAIN NG TODO SI @taas at @baba:
 config t
 NO spanning-tree vlan 1-999
 end
-AYUSIN ULET IS @taas: AT @baba
+AYUSIN U  LET IS @taas: AT @baba
 config t
 spanning-tree vlan 1-999
 end
@@ -490,7 +489,7 @@ config t
 hostname PLDT-ITO
 Track 1 Int gi 0/1 line-protocol
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.31.1.6
 standby 1 preempt
 standby 1 Priority 150
 standby 1 Track 1 decrement 60
@@ -508,7 +507,7 @@ COREBABA/GLOBE:
 config t
 hostname GLOBE-ITO
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.31.1.6
 standby 1 preempt
 standby 1 Priority 100
 end
